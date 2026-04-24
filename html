@@ -1,0 +1,1172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Welcome to Ho Chi Minh City — ITG New Tutor Guide</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --gold: #C8973A;
+    --gold-light: #E8B865;
+    --cream: #FAF6EE;
+    --deep: #1A1208;
+    --rust: #C4501A;
+    --green: #2D5A3D;
+    --muted: #7A6E5E;
+    --border: rgba(200,151,58,0.25);
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--cream);
+    color: var(--deep);
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300;
+    line-height: 1.75;
+    overflow-x: hidden;
+  }
+
+  /* ── HERO ── */
+  .hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    overflow: hidden;
+    background: var(--deep);
+    padding: 4rem 2rem;
+  }
+
+  .hero-bg {
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(ellipse 80% 60% at 50% 120%, rgba(200,151,58,0.18) 0%, transparent 70%),
+      radial-gradient(ellipse 60% 40% at 20% 10%, rgba(196,80,26,0.12) 0%, transparent 60%),
+      radial-gradient(ellipse 50% 50% at 80% 20%, rgba(45,90,61,0.15) 0%, transparent 60%);
+  }
+
+  /* Decorative pattern */
+  .hero-pattern {
+    position: absolute; inset: 0;
+    background-image:
+      repeating-linear-gradient(45deg, transparent, transparent 40px, rgba(200,151,58,0.03) 40px, rgba(200,151,58,0.03) 41px),
+      repeating-linear-gradient(-45deg, transparent, transparent 40px, rgba(200,151,58,0.03) 40px, rgba(200,151,58,0.03) 41px);
+  }
+
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    border: 1px solid var(--gold);
+    color: var(--gold);
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    padding: 0.4rem 1.2rem;
+    border-radius: 2px;
+    margin-bottom: 2rem;
+    position: relative;
+    z-index: 2;
+    animation: fadeUp 0.8s ease both;
+  }
+
+  .hero-eyebrow {
+    color: var(--gold);
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: clamp(1rem, 2vw, 1.3rem);
+    letter-spacing: 0.05em;
+    margin-bottom: 0.75rem;
+    position: relative; z-index: 2;
+    animation: fadeUp 0.9s 0.1s ease both;
+  }
+
+  .hero h1 {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(3rem, 8vw, 6.5rem);
+    color: var(--cream);
+    line-height: 1.0;
+    letter-spacing: -0.02em;
+    position: relative; z-index: 2;
+    animation: fadeUp 1s 0.2s ease both;
+  }
+
+  .hero h1 em {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    color: var(--gold);
+  }
+
+  .hero-sub {
+    font-size: clamp(0.95rem, 1.5vw, 1.1rem);
+    color: rgba(250,246,238,0.65);
+    max-width: 580px;
+    margin: 1.5rem auto 0;
+    position: relative; z-index: 2;
+    animation: fadeUp 1s 0.3s ease both;
+  }
+
+  .hero-vn {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 1rem;
+    color: var(--gold-light);
+    margin-top: 2.5rem;
+    position: relative; z-index: 2;
+    animation: fadeUp 1s 0.4s ease both;
+  }
+
+  .hero-scroll {
+    position: absolute; bottom: 2rem; left: 50%; transform: translateX(-50%);
+    display: flex; flex-direction: column; align-items: center; gap: 0.5rem;
+    color: rgba(250,246,238,0.4); font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase;
+    z-index: 2; animation: fadeUp 1.2s 0.8s ease both;
+  }
+
+  .scroll-line {
+    width: 1px; height: 40px;
+    background: linear-gradient(to bottom, rgba(200,151,58,0.6), transparent);
+    animation: scrollPulse 2s ease-in-out infinite;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: sticky; top: 0; z-index: 100;
+    background: rgba(26,18,8,0.95);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    padding: 0 2rem;
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 1rem; min-height: 56px; flex-wrap: wrap;
+  }
+
+  .nav-logo {
+    font-family: 'DM Serif Display', serif;
+    color: var(--gold);
+    font-size: 1rem;
+    letter-spacing: 0.05em;
+    white-space: nowrap;
+  }
+
+  .nav-links {
+    display: flex; gap: 0; list-style: none; flex-wrap: wrap;
+  }
+
+  .nav-links a {
+    color: rgba(250,246,238,0.6);
+    text-decoration: none;
+    font-size: 0.72rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 0.5rem 0.85rem;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--gold); }
+
+  /* ── SECTIONS ── */
+  section { padding: 5rem 2rem; }
+
+  .container { max-width: 1100px; margin: 0 auto; }
+
+  .section-label {
+    display: inline-flex; align-items: center; gap: 0.75rem;
+    font-size: 0.68rem; letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--gold); font-weight: 500; margin-bottom: 1rem;
+  }
+  .section-label::before {
+    content: '';
+    display: block; width: 30px; height: 1px; background: var(--gold);
+  }
+
+  .section-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(2rem, 4vw, 3rem);
+    line-height: 1.15;
+    margin-bottom: 1rem;
+  }
+
+  .section-lead {
+    font-size: 1.05rem;
+    color: var(--muted);
+    max-width: 600px;
+    margin-bottom: 3rem;
+    line-height: 1.8;
+  }
+
+  /* ── WELCOME SECTION ── */
+  #welcome {
+    background: var(--cream);
+  }
+
+  .welcome-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: start;
+  }
+
+  .welcome-text p {
+    color: var(--muted);
+    margin-bottom: 1.1rem;
+    font-size: 0.98rem;
+  }
+
+  .sig-block {
+    margin-top: 2rem;
+    border-top: 1px solid var(--border);
+    padding-top: 1.5rem;
+  }
+
+  .sig {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 1.4rem;
+    color: var(--deep);
+  }
+
+  .sig-role { font-size: 0.78rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); margin-top: 0.2rem; }
+
+  .welcome-card {
+    background: var(--deep);
+    color: var(--cream);
+    padding: 2.5rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .welcome-card::before {
+    content: '"';
+    font-family: 'Playfair Display', serif;
+    font-size: 12rem;
+    color: rgba(200,151,58,0.08);
+    position: absolute; top: -2rem; left: 1rem;
+    line-height: 1;
+    pointer-events: none;
+  }
+
+  .welcome-card blockquote {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 1.25rem;
+    line-height: 1.6;
+    color: var(--cream);
+    position: relative; z-index: 1;
+    margin-bottom: 1.5rem;
+  }
+
+  .welcome-card .card-highlight {
+    display: flex; gap: 1.5rem; flex-wrap: wrap;
+  }
+
+  .highlight-item {
+    flex: 1; min-width: 120px;
+    border-top: 2px solid var(--gold);
+    padding-top: 0.75rem;
+  }
+
+  .highlight-num {
+    font-family: 'DM Serif Display', serif;
+    font-size: 2rem; color: var(--gold); line-height: 1;
+  }
+
+  .highlight-label {
+    font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase;
+    color: rgba(250,246,238,0.5); margin-top: 0.25rem;
+  }
+
+  /* ── ARRIVAL SECTION ── */
+  #arrival { background: #F5EFE4; }
+
+  .checklist-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .check-card {
+    background: var(--cream);
+    border: 1px solid var(--border);
+    padding: 1.75rem;
+    position: relative;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+
+  .check-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 40px rgba(26,18,8,0.1);
+  }
+
+  .check-icon {
+    width: 42px; height: 42px;
+    background: var(--deep);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.3rem; margin-bottom: 1rem;
+  }
+
+  .check-card h3 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.1rem; margin-bottom: 0.6rem;
+  }
+
+  .check-card p { font-size: 0.88rem; color: var(--muted); line-height: 1.65; }
+
+  .tag {
+    display: inline-block;
+    font-size: 0.65rem; letter-spacing: 0.12em; text-transform: uppercase;
+    padding: 0.2rem 0.6rem;
+    background: var(--gold); color: var(--deep); font-weight: 500;
+    margin-bottom: 0.75rem;
+  }
+
+  /* ── ESSENTIALS SECTION ── */
+  #essentials { background: var(--cream); }
+
+  .essentials-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+  }
+
+  .essential-item {
+    background: var(--cream);
+    padding: 1.5rem;
+    transition: background 0.2s;
+  }
+
+  .essential-item:hover { background: #F0E9D8; }
+
+  .essential-item h4 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1rem; margin-bottom: 0.4rem;
+    display: flex; align-items: center; gap: 0.5rem;
+  }
+
+  .essential-item h4 span { font-size: 1.2rem; }
+  .essential-item p { font-size: 0.83rem; color: var(--muted); line-height: 1.6; }
+
+  /* ── AREAS SECTION ── */
+  #areas { background: var(--deep); color: var(--cream); }
+
+  #areas .section-title { color: var(--cream); }
+  #areas .section-lead { color: rgba(250,246,238,0.6); }
+
+  .areas-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .area-card {
+    border: 1px solid rgba(200,151,58,0.2);
+    padding: 2rem;
+    position: relative;
+    overflow: hidden;
+    transition: border-color 0.2s;
+    cursor: default;
+  }
+
+  .area-card:hover { border-color: var(--gold); }
+
+  .area-card::after {
+    content: '';
+    position: absolute; inset: 0;
+    background: linear-gradient(135deg, rgba(200,151,58,0.05) 0%, transparent 60%);
+    opacity: 0; transition: opacity 0.3s;
+  }
+
+  .area-card:hover::after { opacity: 1; }
+
+  .area-num {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 3.5rem;
+    color: rgba(200,151,58,0.15);
+    position: absolute; top: 0.5rem; right: 1.25rem;
+    line-height: 1;
+  }
+
+  .area-card h3 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.3rem; color: var(--gold);
+    margin-bottom: 0.3rem;
+  }
+
+  .area-vibe {
+    font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase;
+    color: rgba(250,246,238,0.4); margin-bottom: 0.8rem;
+  }
+
+  .area-card p { font-size: 0.88rem; color: rgba(250,246,238,0.65); line-height: 1.7; }
+
+  .area-tags {
+    display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 1rem;
+  }
+
+  .area-tag {
+    font-size: 0.65rem; letter-spacing: 0.08em; text-transform: uppercase;
+    padding: 0.2rem 0.55rem;
+    border: 1px solid rgba(200,151,58,0.3);
+    color: rgba(200,151,58,0.7);
+  }
+
+  /* ── RENTAL SECTION ── */
+  #rental { background: #F5EFE4; }
+
+  .rental-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: start;
+  }
+
+  .rental-rules { display: flex; flex-direction: column; gap: 1.25rem; }
+
+  .rule-item {
+    padding: 1.25rem 1.5rem;
+    border-left: 3px solid var(--gold);
+    background: var(--cream);
+  }
+
+  .rule-item h4 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1rem; margin-bottom: 0.3rem;
+  }
+
+  .rule-item p { font-size: 0.85rem; color: var(--muted); }
+
+  .rental-tips {
+    background: var(--deep); color: var(--cream);
+    padding: 2.5rem;
+  }
+
+  .rental-tips h3 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.4rem; color: var(--gold); margin-bottom: 1.25rem;
+  }
+
+  .tip-list { list-style: none; display: flex; flex-direction: column; gap: 0.75rem; }
+
+  .tip-list li {
+    font-size: 0.88rem; color: rgba(250,246,238,0.75);
+    display: flex; align-items: baseline; gap: 0.6rem;
+  }
+
+  .tip-list li::before {
+    content: '→'; color: var(--gold); flex-shrink: 0;
+  }
+
+  /* ── DINING SECTION ── */
+  #dining { background: var(--cream); }
+
+  .food-intro {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 4rem; align-items: start;
+    margin-bottom: 4rem;
+  }
+
+  .dishes-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+    margin-bottom: 3rem;
+  }
+
+  .dish-item {
+    background: var(--cream);
+    padding: 1.25rem;
+    transition: background 0.2s;
+  }
+
+  .dish-item:hover { background: #F0E9D8; }
+
+  .dish-name {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1rem; margin-bottom: 0.25rem; color: var(--rust);
+  }
+
+  .dish-desc { font-size: 0.8rem; color: var(--muted); line-height: 1.5; }
+
+  .restaurants-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 0.75rem;
+  }
+
+  .resto-item {
+    display: flex; align-items: flex-start; gap: 0.75rem;
+    padding: 0.9rem 1.1rem;
+    border: 1px solid var(--border);
+    transition: border-color 0.2s, background 0.2s;
+  }
+
+  .resto-item:hover {
+    border-color: var(--gold);
+    background: rgba(200,151,58,0.04);
+  }
+
+  .resto-dot {
+    width: 6px; height: 6px;
+    background: var(--gold); flex-shrink: 0;
+    border-radius: 50%; margin-top: 0.55rem;
+  }
+
+  .resto-name {
+    font-size: 0.88rem; font-weight: 500; color: var(--deep);
+  }
+
+  .resto-desc { font-size: 0.78rem; color: var(--muted); line-height: 1.5; }
+
+  /* ── GETTING AROUND ── */
+  #transport { background: var(--deep); color: var(--cream); }
+  #transport .section-title { color: var(--cream); }
+  #transport .section-lead { color: rgba(250,246,238,0.6); }
+
+  .transport-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
+
+  .transport-card {
+    border: 1px solid rgba(200,151,58,0.2);
+    padding: 2rem;
+  }
+
+  .transport-card h3 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.3rem; color: var(--gold); margin-bottom: 1rem;
+    display: flex; align-items: center; gap: 0.5rem;
+  }
+
+  .transport-card p, .transport-card li {
+    font-size: 0.88rem; color: rgba(250,246,238,0.7); line-height: 1.7;
+  }
+
+  .transport-card ul { list-style: none; margin-top: 0.75rem; display: flex; flex-direction: column; gap: 0.4rem; }
+
+  .transport-card li::before { content: '· '; color: var(--gold); }
+
+  .fare-box {
+    background: rgba(200,151,58,0.1);
+    border: 1px solid rgba(200,151,58,0.25);
+    padding: 0.75rem 1rem;
+    margin-top: 1rem;
+    font-size: 0.82rem; color: rgba(250,246,238,0.6);
+  }
+
+  .fare-box strong { color: var(--gold); }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--deep);
+    border-top: 1px solid rgba(200,151,58,0.2);
+    padding: 3rem 2rem;
+    text-align: center;
+  }
+
+  .footer-logo {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.5rem; color: var(--gold); margin-bottom: 0.5rem;
+  }
+
+  .footer-tagline {
+    font-size: 0.8rem; color: rgba(250,246,238,0.4);
+    letter-spacing: 0.1em; text-transform: uppercase;
+    margin-bottom: 2rem;
+  }
+
+  .footer-line {
+    font-size: 0.82rem; color: rgba(250,246,238,0.3);
+  }
+
+  .footer-vn {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    color: var(--gold);
+    font-size: 1.2rem;
+    margin-top: 1.5rem;
+  }
+
+  /* ── DIVIDERS ── */
+  .ornament {
+    text-align: center;
+    color: var(--gold);
+    opacity: 0.4;
+    font-size: 1.2rem;
+    letter-spacing: 0.5em;
+    margin: 0.5rem 0 3rem;
+  }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes scrollPulse {
+    0%, 100% { opacity: 0.4; transform: scaleY(1); }
+    50% { opacity: 1; transform: scaleY(1.3); transform-origin: top; }
+  }
+
+  .reveal {
+    opacity: 0; transform: translateY(20px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 768px) {
+    .welcome-grid, .rental-grid, .transport-grid, .food-intro {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+    nav { gap: 0.5rem; }
+    .nav-links { gap: 0; }
+    .nav-links a { padding: 0.4rem 0.5rem; font-size: 0.65rem; }
+    section { padding: 3.5rem 1.25rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ══════════════════ HERO ══════════════════ -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-pattern"></div>
+
+  <div class="hero-badge">✦ International Tutor Group · Ho Chi Minh City</div>
+  <p class="hero-eyebrow">Chào mừng đến với thành phố Hồ Chí Minh</p>
+  <h1>Welcome to<br><em>Sài Gòn</em></h1>
+  <p class="hero-sub">Your complete guide to settling into one of Southeast Asia's most vibrant, dynamic, and endlessly surprising cities.</p>
+  <p class="hero-vn">— Chúc may mắn! Good luck! —</p>
+
+  <div class="hero-scroll">
+    <div class="scroll-line"></div>
+    <span>Scroll</span>
+  </div>
+</section>
+
+<!-- ══════════════════ NAV ══════════════════ -->
+<nav>
+  <div class="nav-logo">ITG · HCMC</div>
+  <ul class="nav-links">
+    <li><a href="#welcome">Welcome</a></li>
+    <li><a href="#arrival">Arrival</a></li>
+    <li><a href="#essentials">Essentials</a></li>
+    <li><a href="#areas">Areas</a></li>
+    <li><a href="#rental">Rental</a></li>
+    <li><a href="#dining">Dining</a></li>
+    <li><a href="#transport">Getting Around</a></li>
+  </ul>
+</nav>
+
+<!-- ══════════════════ WELCOME ══════════════════ -->
+<section id="welcome">
+  <div class="container">
+    <div class="welcome-grid reveal">
+      <div class="welcome-text">
+        <div class="section-label">A note from the team</div>
+        <h2 class="section-title">You're in for something extraordinary.</h2>
+        <p>Ho Chi Minh City pulses with the energy of a bustling metropolis woven together with timeless traditions — a truly unique and exciting living environment.</p>
+        <p>You probably have a million questions buzzing around your head, from "Where should I live?" to "What's the best phở?" That's precisely why we've put together this guide — your personalised companion to settling into life in this extraordinary city.</p>
+        <p>This isn't just about the nuts and bolts of living in HCMC. It's filled with tips, advice, and insights from those who've walked the path before you. Their experiences, shared wisdom, and 'need-to-know' tips will be of great help as you begin to explore your new home.</p>
+        <p>Don't hesitate to ask any team member whenever you have questions or just need a friendly chat. We're all here to support each other.</p>
+        <div class="sig-block">
+          <div class="sig">Gemma & Will</div>
+          <div class="sig-role">International Tutor Group · HCMC Team</div>
+        </div>
+      </div>
+      <div>
+        <div class="welcome-card">
+          <blockquote>"Here's to an enriching and exciting adventure ahead — welcome to the team and to your new home in Ho Chi Minh City."</blockquote>
+          <div class="card-highlight">
+            <div class="highlight-item">
+              <div class="highlight-num">7+</div>
+              <div class="highlight-label">Districts covered</div>
+            </div>
+            <div class="highlight-item">
+              <div class="highlight-num">20+</div>
+              <div class="highlight-label">Restaurants nearby</div>
+            </div>
+            <div class="highlight-item">
+              <div class="highlight-num">1</div>
+              <div class="highlight-label">Incredible city</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════ ARRIVAL ══════════════════ -->
+<section id="arrival">
+  <div class="container">
+    <div class="reveal">
+      <div class="section-label">Before & on arrival</div>
+      <h2 class="section-title">Preparing for HCMC</h2>
+      <p class="section-lead">A few things to sort out before you board the plane — and what to expect when you land at Tân Sơn Nhất.</p>
+    </div>
+    <div class="checklist-grid">
+      <div class="check-card reveal">
+        <div class="check-icon">✈</div>
+        <div class="tag">Flights</div>
+        <h3>Book flights early</h3>
+        <p>We strongly advise arriving at least four days before your start date to help you recover from jet lag and get settled in before you begin.</p>
+      </div>
+      <div class="check-card reveal">
+        <div class="check-icon">🛂</div>
+        <div class="tag">Essential</div>
+        <h3>Passport validity</h3>
+        <p>If your passport has less than six months validity from your arrival date, apply for a new one urgently. You can renew via the UK Foreign Office.</p>
+      </div>
+      <div class="check-card reveal">
+        <div class="check-icon">💉</div>
+        <div class="tag">Health</div>
+        <h3>Health preparation</h3>
+        <p>Check your general travel boosters are up to date with your GP. Some unusual vaccinations like Yellow Fever are only needed if trekking in remote rural areas. HCMC is generally a very safe city health-wise.</p>
+      </div>
+      <div class="check-card reveal">
+        <div class="check-icon">🛡</div>
+        <div class="tag">Important</div>
+        <h3>Travel insurance</h3>
+        <p>ITG will provide health insurance once you arrive. Before departure, take out travel insurance to cover your flights, baggage, and time before you start. Recommended: World Nomads or Big Cat Travel Insurance.</p>
+      </div>
+      <div class="check-card reveal">
+        <div class="check-icon">🛬</div>
+        <div class="tag">Airport</div>
+        <h3>Arriving at Tân Sơn Nhất</h3>
+        <p>Visit the visa department before passport control — it's to the left of the booths as you exit the flight. ITG will share your sponsor letter once approval is confirmed. The process is quick and easy.</p>
+      </div>
+      <div class="check-card reveal">
+        <div class="check-icon">🏠</div>
+        <div class="tag">Day one</div>
+        <h3>Getting to your accommodation</h3>
+        <p>After collecting your bags, ITG will arrange transport to your accommodation. Someone will be waiting for you in the arrivals hall, and we'll leave some essentials for your first few days. A SIM card will also be arranged for you.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════ ESSENTIALS ══════════════════ -->
+<section id="essentials">
+  <div class="container">
+    <div class="reveal">
+      <div class="section-label">What to pack</div>
+      <h2 class="section-title">Pack these, just in case</h2>
+      <p class="section-lead">HCMC is a fully modernised city and you'll find most things you need from home — but a few items are worth bringing with you.</p>
+    </div>
+    <div class="essentials-grid reveal">
+      <div class="essential-item">
+        <h4><span>💻</span> Laptop & charger</h4>
+        <p>You'll need to bring your own laptop and charger. The centre has adapters and extension leads, so you don't need to bring these for work — but it's handy for personal use.</p>
+      </div>
+      <div class="essential-item">
+        <h4><span>👁</span> Contact lenses</h4>
+        <p>Lenses and solution are available in most opticians here, but they are more expensive — worth stocking up before you fly.</p>
+      </div>
+      <div class="essential-item">
+        <h4><span>💄</span> Preferred cosmetics</h4>
+        <p>Larger department stores do stock cosmetics, but it's not guaranteed your personal favourites will be available. Bring your essentials.</p>
+      </div>
+      <div class="essential-item">
+        <h4><span>👟</span> Large shoes (size 10+)</h4>
+        <p>Shoes are easy to find in HCMC, but if you're over a UK size 10 (male) or 5 (female), pack a couple of extra pairs. Sports trainers in premium brands also come at a premium here.</p>
+      </div>
+      <div class="essential-item">
+        <h4><span>☀️</span> Suncream</h4>
+        <p>The sun will be shining as soon as you step off the plane. Many Asian creams contain whiteners, so bring your preferred brand to start with.</p>
+      </div>
+      <div class="essential-item">
+        <h4><span>🩱</span> Swimwear (larger sizes)</h4>
+        <p>Finding comfortable underwear (size 14+) and swimwear (size 12+) can be challenging. Larger department stores have more variety but can still be difficult.</p>
+      </div>
+      <div class="essential-item">
+        <h4><span>🩺</span> Medication (3 months)</h4>
+        <p>If you take any prescription medication, bring at least a three-month supply. You'll generally be able to find alternatives, but if your medication is specialised, bring more.</p>
+      </div>
+      <div class="essential-item">
+        <h4><span>🍵</span> Tea (optional)</h4>
+        <p>Vietnam is a tea-drinking nation, but if you're a Yorkshire or PG Tips loyalist, pack a box. International supermarkets do stock UK brands, but they come at a premium.</p>
+      </div>
+      <div class="essential-item">
+        <h4><span>👗</span> Smart clothing</h4>
+        <p>All ITG staff must dress smartly. Please review the ITG Staff Dress Code for what you'll need for your first day. You'll find plenty of good options here once you arrive.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════ AREAS ══════════════════ -->
+<section id="areas">
+  <div class="container">
+    <div class="reveal">
+      <div class="section-label">Finding your home</div>
+      <h2 class="section-title">Areas around HCMC</h2>
+      <p class="section-lead">After arriving, you'll need to decide where to live. There are many options — here are the most popular areas among the expat community.</p>
+    </div>
+    <div class="areas-grid">
+      <div class="area-card reveal">
+        <div class="area-num">D1</div>
+        <h3>District 1</h3>
+        <div class="area-vibe">Vibrant · Central · Iconic</div>
+        <p>Often considered the heartbeat of HCMC — a dynamic fusion of old and new. Modern skyscrapers and chic rooftop bars stand alongside timeless colonial buildings and bustling street markets. The iconic Notre Dame Cathedral, Ben Thanh Market, and the lively Bùi Viện street all call this district home.</p>
+        <div class="area-tags">
+          <span class="area-tag">Shopping</span>
+          <span class="area-tag">Culture</span>
+          <span class="area-tag">Entertainment</span>
+        </div>
+      </div>
+      <div class="area-card reveal">
+        <div class="area-num">D3</div>
+        <h3>District 3</h3>
+        <div class="area-vibe">Quieter · Colonial · Charming</div>
+        <p>For a more local experience with equally captivating charm, District 3 presents a delightful blend of local culture and French colonial architecture. Tree-lined streets are filled with quaint coffee shops, local boutiques, and iconic attractions such as the War Remnants Museum and the Tao Dan Park.</p>
+        <div class="area-tags">
+          <span class="area-tag">Coffee</span>
+          <span class="area-tag">Local feel</span>
+          <span class="area-tag">History</span>
+        </div>
+      </div>
+      <div class="area-card reveal">
+        <div class="area-num">Đa Kao</div>
+        <h3>Đa Kao</h3>
+        <div class="area-vibe">Green · Serene · Upscale</div>
+        <p>Tucked within District 1, Đa Kao is quieter, greener, and more residential. Despite its calm demeanour, it hosts several upscale restaurants, chic cafés, and unique art galleries. It's also home to the Saigon Zoo and Botanical Gardens, one of the oldest zoos in the world.</p>
+        <div class="area-tags">
+          <span class="area-tag">Nature</span>
+          <span class="area-tag">Galleries</span>
+          <span class="area-tag">Restaurants</span>
+        </div>
+      </div>
+      <div class="area-card reveal">
+        <div class="area-num">D2</div>
+        <h3>Thảo Điền</h3>
+        <div class="area-vibe">Expat · Upscale · Riverside</div>
+        <p>HCMC's very own expatriate bubble! Located within District 2, Thảo Điền is a serene area with trendy boutiques, international schools, gourmet restaurants, and stylish cafés. With the Saigon River bordering it, it offers an escape from the city's hustle and a tight-knit expat community.</p>
+        <div class="area-tags">
+          <span class="area-tag">International</span>
+          <span class="area-tag">Schools</span>
+          <span class="area-tag">Riverside</span>
+        </div>
+      </div>
+      <div class="area-card reveal">
+        <div class="area-num">An Phú</div>
+        <h3>An Phú</h3>
+        <div class="area-vibe">Tranquil · Spacious · Green</div>
+        <p>Also in District 2, An Phú is another popular residential area particularly among expats. Known for its tranquillity, green spaces, and spacious living arrangements, it's a fantastic place for those seeking a quieter lifestyle away from the city buzz.</p>
+        <div class="area-tags">
+          <span class="area-tag">Family-friendly</span>
+          <span class="area-tag">Quiet</span>
+          <span class="area-tag">Spacious</span>
+        </div>
+      </div>
+      <div class="area-card reveal">
+        <div class="area-num">D7</div>
+        <h3>District 7 · Phú Mỹ Hưng</h3>
+        <div class="area-vibe">Modern · Convenient · Balanced</div>
+        <p>Particularly known for Phú Mỹ Hưng, District 7 offers an appealing blend of modern amenities and a tranquil lifestyle. Well-planned residential areas with lush green spaces and a variety of dining and shopping options make it a popular choice. Its proximity to the city centre ensures you enjoy the best of both worlds.</p>
+        <div class="area-tags">
+          <span class="area-tag">Shopping</span>
+          <span class="area-tag">Dining</span>
+          <span class="area-tag">Parks</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════ RENTAL ══════════════════ -->
+<section id="rental">
+  <div class="container">
+    <div class="reveal">
+      <div class="section-label">Finding your apartment</div>
+      <h2 class="section-title">Rental rules in HCMC</h2>
+      <p class="section-lead">Renting property as an expat in Ho Chi Minh City is generally straightforward — but there are a few key rules and expectations to know.</p>
+    </div>
+    <div class="rental-grid">
+      <div class="rental-rules reveal">
+        <div class="rule-item">
+          <h4>Rental contract</h4>
+          <p>All agreements should be in writing. Most landlords provide a bilingual contract in both Vietnamese and English. Ensure you understand all terms and conditions before signing — if offered Vietnamese-only, request an English version or speak with our Vietnamese team.</p>
+        </div>
+        <div class="rule-item">
+          <h4>Deposit</h4>
+          <p>Landlords typically require a deposit equivalent to two months' rent. This is usually refunded when you leave, provided there's no damage beyond normal wear and tear. Keep the deposit available in VND as international bank transfers can be problematic.</p>
+        </div>
+        <div class="rule-item">
+          <h4>Rent payment</h4>
+          <p>Rent is generally paid monthly, though some landlords may request quarterly payments (very rare). Always clarify the payment terms before signing the lease.</p>
+        </div>
+        <div class="rule-item">
+          <h4>Lease duration</h4>
+          <p>Lease terms are often flexible in HCMC. One year leases are most common, but shorter or longer terms can often be negotiated with the landlord.</p>
+        </div>
+        <div class="rule-item">
+          <h4>Registration with local police</h4>
+          <p>Once you find a place, you must register your residency with the local police. Your landlord will usually assist you with this process. Our Vietnamese team can also support you.</p>
+        </div>
+      </div>
+      <div class="reveal">
+        <div class="rental-tips">
+          <h3>💡 Practical tips</h3>
+          <ul class="tip-list">
+            <li>Always work with a reputable real estate agent familiar with the local market — our current team can provide recommendations.</li>
+            <li>Utilities (electricity, water, internet, cable TV) are often paid separately from rent — always check what's included before signing.</li>
+            <li>Serviced apartments are available, usually including cleaning once or twice a week, with linen changes as part of the service.</li>
+            <li>Both tenant and landlord have the right to terminate the lease with one to three months' notice — clarify this in your contract.</li>
+            <li>Be sure to clarify your deposit return policy in cases of early termination before you sign anything.</li>
+            <li>Utility bills in Vietnam are much lower than in most home countries — a pleasant surprise!</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════ DINING ══════════════════ -->
+<section id="dining">
+  <div class="container">
+    <div class="reveal">
+      <div class="section-label">Eating & drinking</div>
+      <h2 class="section-title">Dining in HCMC</h2>
+      <p class="section-lead">The Vietnamese are famous for extraordinary food — and with so much choice you won't be bored. Here's a starting point.</p>
+    </div>
+
+    <div class="ornament">✦ ✦ ✦</div>
+
+    <h3 class="section-title" style="font-size:1.5rem; margin-bottom:1.5rem;">Must-try local dishes</h3>
+    <div class="dishes-grid reveal">
+      <div class="dish-item">
+        <div class="dish-name">Phở</div>
+        <div class="dish-desc">Vietnam's most iconic noodle dish — a fragrant broth with noodles, herbs, and your choice of meat.</div>
+      </div>
+      <div class="dish-item">
+        <div class="dish-name">Bún Bò Huế</div>
+        <div class="dish-desc">A spicy beef noodle soup originating from the city of Huế — richer and spicier than phở.</div>
+      </div>
+      <div class="dish-item">
+        <div class="dish-name">Cơm Tấm</div>
+        <div class="dish-desc">Broken rice topped with grilled pork chops, a fried egg, and pickled vegetables. A Saigon staple.</div>
+      </div>
+      <div class="dish-item">
+        <div class="dish-name">Bánh Xèo</div>
+        <div class="dish-desc">A crispy, savoury Vietnamese pancake filled with shrimp, pork, bean sprouts, and onions.</div>
+      </div>
+      <div class="dish-item">
+        <div class="dish-name">Bánh Mì</div>
+        <div class="dish-desc">A Vietnamese sandwich combining French and Vietnamese flavours in a perfectly crispy baguette.</div>
+      </div>
+      <div class="dish-item">
+        <div class="dish-name">Gỏi Cuốn</div>
+        <div class="dish-desc">Fresh spring rolls filled with shrimp, pork, rice noodles, and fresh herbs wrapped in rice paper.</div>
+      </div>
+      <div class="dish-item">
+        <div class="dish-name">Bánh Canh</div>
+        <div class="dish-desc">A thick and chewy Vietnamese noodle dish with a rich, hearty broth.</div>
+      </div>
+      <div class="dish-item">
+        <div class="dish-name">Cà Phê Sữa Đá</div>
+        <div class="dish-desc">Vietnam's famous traditional iced coffee — strong, sweet, and utterly addictive.</div>
+      </div>
+      <div class="dish-item">
+        <div class="dish-name">Bánh Khọt</div>
+        <div class="dish-desc">Mini savoury rice pancakes cooked in a special pan, topped with shrimp, spring onions, and mung beans.</div>
+      </div>
+    </div>
+
+    <div class="ornament">✦ ✦ ✦</div>
+
+    <h3 class="section-title" style="font-size:1.5rem; margin-bottom:1.5rem;">Restaurants near ITG</h3>
+    <div class="restaurants-list reveal">
+      <div class="resto-item">
+        <div class="resto-dot"></div>
+        <div>
+          <div class="resto-name">Bếp Vợ</div>
+          <div class="resto-desc">Cosy & casual Vietnamese restaurant known for traditional home-cooked dishes.</div>
+        </div>
+      </div>
+      <div class="resto-item">
+        <div class="resto-dot"></div>
+        <div>
+          <div class="resto-name">The Loop</div>
+          <div class="resto-desc">Diverse menu from burgers to Asian-inspired dishes — popular with expats.</div>
+        </div>
+      </div>
+      <div class="resto-item">
+        <div class="resto-dot"></div>
+        <div>
+          <div class="resto-name">Mekong Merchant</div>
+          <div class="resto-desc">Flavourful Vietnamese & Western dishes made with fresh local ingredients.</div>
+        </div>
+      </div>
+      <div class="resto-item">
+        <div class="resto-dot"></div>
+        <div>
+          <div class="resto-name">Saigon Bagel</div>
+          <div class="resto-desc">A popular spot for breakfast or brunch with great bagel options.</div>
+        </div>
+      </div>
+      <div class="resto-item">
+        <div class="resto-dot"></div>
+        <div>
+          <div class="resto-name">Quan Bui Garden</div>
+          <div class="resto-desc">Vietnamese restaurant offering a delightful outdoor garden setting.</div>
+        </div>
+      </div>
+      <div class="resto-item">
+        <div class="resto-dot"></div>
+        <div>
+          <div class="resto-name">BiaCraft Xuân Thuỷ</div>
+          <div class="resto-desc">Wide selection of local and international craft beers with a great food menu.</div>
+        </div>
+      </div>
+      <div class="resto-item">
+        <div class="resto-dot"></div>
+        <div>
+          <div class="resto-name">Poke Saigon</div>
+          <div class="resto-desc">Hawaiian-inspired restaurant specialising in healthy and fresh poke bowls.</div>
+        </div>
+      </div>
+      <div class="resto-item">
+        <div class="resto-dot"></div>
+        <div>
+          <div class="resto-name">Snap Cafe</div>
+          <div class="resto-desc">Family-friendly with a spacious outdoor garden area. A small community of restaurants and shops in one spot.</div>
+        </div>
+      </div>
+      <div class="resto-item">
+        <div class="resto-dot"></div>
+        <div>
+          <div class="resto-name">Hue Corner</div>
+          <div class="resto-desc">Specialises in Hue cuisine — the regional cuisine of Central Vietnam.</div>
+        </div>
+      </div>
+      <div class="resto-item">
+        <div class="resto-dot"></div>
+        <div>
+          <div class="resto-name">Union Jack's</div>
+          <div class="resto-desc">British-themed restaurant offering classic fish and chips. A taste of home in Thảo Điền!</div>
+        </div>
+      </div>
+      <div class="resto-item">
+        <div class="resto-dot"></div>
+        <div>
+          <div class="resto-name">Pendolasco</div>
+          <div class="resto-desc">Authentic Italian restaurant known for its dishes including pasta and pizza.</div>
+        </div>
+      </div>
+      <div class="resto-item">
+        <div class="resto-dot"></div>
+        <div>
+          <div class="resto-name">High Tide</div>
+          <div class="resto-desc">Relaxed open-air bar at the top of Thảo Điền — a great place to watch sports.</div>
+        </div>
+      </div>
+      <div class="resto-item">
+        <div class="resto-dot"></div>
+        <div>
+          <div class="resto-name">Eddie's New York Diner</div>
+          <div class="resto-desc">Large range of western dishes with frequent specials and discounts.</div>
+        </div>
+      </div>
+      <div class="resto-item">
+        <div class="resto-dot"></div>
+        <div>
+          <div class="resto-name">The Vintage Emporium</div>
+          <div class="resto-desc">A cosy cafe serving a range of comfort food and delicious brunch options.</div>
+        </div>
+      </div>
+      <div class="resto-item">
+        <div class="resto-dot"></div>
+        <div>
+          <div class="resto-name">Pho Ong Tay Pasta Bar</div>
+          <div class="resto-desc">Unique restaurant combining Vietnamese phở and Italian pasta — a must-try.</div>
+        </div>
+      </div>
+      <div class="resto-item">
+        <div class="resto-dot"></div>
+        <div>
+          <div class="resto-name">Flying Pig</div>
+          <div class="resto-desc">Comfort food and a great beer selection in a relaxed atmosphere.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════ TRANSPORT ══════════════════ -->
+<section id="transport">
+  <div class="container">
+    <div class="reveal">
+      <div class="section-label">Moving around the city</div>
+      <h2 class="section-title">Getting around HCMC</h2>
+      <p class="section-lead">Most foreigners get around by xe ôm (motorbike taxi) or regular taxi. Here's what you need to know.</p>
+    </div>
+    <div class="transport-grid">
+      <div class="transport-card reveal">
+        <h3>🛵 Motorbike</h3>
+        <p>If you're considering driving yourself, you'll need a licence to ensure your insurance is valid and to present to police if pulled over. We recommend bringing your UK driving licence and getting it converted to a Vietnamese one — far easier than doing a Vietnamese driving test.</p>
+        <p style="margin-top: 0.75rem;">If you wish to drive, you have the option of buying or renting a motorbike. They are inexpensive and widely available. Always stay safe and buy an EU standard helmet.</p>
+        <ul>
+          <li>Saigon Motorcycles — good starting point</li>
+          <li>DC Motorbikes — well-reviewed</li>
+        </ul>
+      </div>
+      <div class="transport-card reveal">
+        <h3>🚕 Taxis & ride-hailing</h3>
+        <p>Taxis are very inexpensive and easy to use. Several apps allow you to call taxis in advance, helping you get in and around traffic quickly. Once you've been here a short time, you'll soon feel comfortable on the back of a bike.</p>
+        <ul>
+          <li><strong style="color: var(--gold-light)">Grab</strong> — most popular and reliable</li>
+          <li><strong style="color: var(--gold-light)">GoJek</strong> — great for bikes and cars</li>
+          <li><strong style="color: var(--gold-light)">Be</strong> — popular local alternative</li>
+          <li>Vinasun, Mai Linh & Vinasun — for traditional taxis</li>
+        </ul>
+        <div class="fare-box">
+          <strong>Typical fares:</strong> Around 30,000 VND (£1) for a short journey around Thảo Điền. From Thảo Điền to the city centre: approx. 120,000–150,000 VND (£4–5).
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════ FOOTER ══════════════════ -->
+<footer>
+  <div class="footer-logo">International Tutor Group</div>
+  <div class="footer-tagline">Ho Chi Minh City · Phú Mỹ Hưng</div>
+  <div class="footer-line">This guide was prepared by the ITG HCMC team to help you settle into your new home.</div>
+  <div class="footer-vn">Chào mừng đến với thành phố Hồ Chí Minh! 🌟</div>
+</footer>
+
+<script>
+  // Reveal on scroll
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => {
+          entry.target.classList.add('visible');
+        }, 80);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1 });
+
+  reveals.forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
